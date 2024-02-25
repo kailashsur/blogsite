@@ -10,7 +10,7 @@ import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Navb
 
 export default function NavPage() {
   const menuItems = [
-    
+    "blog",
     "Dashboard",
     "My Settings",
   ];
@@ -53,7 +53,7 @@ export default function NavPage() {
         {
           menuItems.map((item, index) => (
             <NavbarItem key={index}>
-              <Link color="foreground" href="#">
+              <Link color="foreground" href={`/${item}`} className=" capitalize">
                 {item}
               </Link>
             </NavbarItem>
@@ -77,11 +77,11 @@ export default function NavPage() {
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={index} className="list-none">
             <Link
-              className="w-full"
+              className="w-full capitalize"
               color={
                 index === 2 ? "warning" : index === menuItems.length - 1 ? "danger" : "foreground"
               }
-              href="#"
+              href={`/${item}`}
               size="lg"
             >
               {item}

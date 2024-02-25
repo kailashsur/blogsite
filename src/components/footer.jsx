@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export default function Footer() {
   return (
-    <section className="relative bg-orange-50 pb-6 pt-10 overflow-hidden ">
+    <section className="relative border-t border-gray-200 pb-6 pt-10 overflow-hidden ">
       
       <div className="relative container px-4 mx-auto">
         <div className="max-w-7xl mx-auto">

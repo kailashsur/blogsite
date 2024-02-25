@@ -1,4 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
+@layer components {
+
+    img{
+        @apply rounded-md shadow-md;
+    }
+
+    h1{
+        @apply my-6 tracking-tight font-semibold from-[#FF705B] to-[#FFB457] text-4xl lg:text-6xl bg-clip-text text-transparent bg-gradient-to-b;
+    }
+    h2{
+        @apply my-6 tracking-tight font-semibold from-[#FF705B] to-[#FFB457] text-3xl lg:text-5xl bg-clip-text text-transparent bg-gradient-to-b;
+    }
+    h3{
+        @apply mt-6 mb-4 tracking-tight font-semibold from-[#7949ff] to-[#d3acfd] text-2xl lg:text-4xl bg-clip-text text-transparent bg-gradient-to-b;
+    }
+
+
+    blockquote{
+        @apply border-l-5 border-purple-600 py-4 pl-6 bg-purple-100;
+    }
+
+    ol{
+        @apply border-l-5 border-pink-500 py-4 pl-12 bg-pink-100 list-decimal ;
+    }
+    /* li{
+        @apply ml-4 ;
+    } */
+    p{
+        @apply text-lg;
+    }
+}

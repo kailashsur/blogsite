@@ -19,9 +19,11 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <Providers>
           <NavPage />
-          {/* <Background /> */}
+          <Background />
 
-          <main className="">{children}</main>
+          <main className="  mx-auto max-w-7xl px-6 lg:px-8">
+            {children}
+          </main>
 
           {/* <Background /> */}
           <Footer />
