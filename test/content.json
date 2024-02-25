@@ -1,0 +1,30 @@
+{
+    "kind": "blogger#post",
+    "id": "7418670130372415079",
+    "blog": {
+      "id": "3041366657471632387"
+    },
+    "published": "2024-02-16T11:30:00-08:00",
+    "updated": "2024-02-16T11:30:43-08:00",
+    "url": "http://blogrestapi.blogspot.com/2024/02/permalinkpost.html",
+    "selfLink": "https://content-blogger.googleapis.com/v3/blogs/3041366657471632387/posts/7418670130372415079",
+    "title": "The sunset faded to twilight",
+    "content": "<p>Test paragraph</p><p><b>blod</b></p><p><b><i>italic</i></b></p><p><u>underline</u></p><p><strike>strikethrough</strike></p><p><span style=\"color: red;\">text color</span></p><p><span style=\"background-color: #04ff00;\">color</span></p><p><a href=\"https://www.google.com\" target=\"_blank\">backlink</a></p><p></p><div class=\"separator\" style=\"clear: both; text-align: center;\"><a href=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhL4T_APzgnqiANfZ3KNt5uZ2nTNZGkQTTH1F3e4ruENlPJ8ZmVKVn2fSG15XV8zJU83RFtTdldJzQCM6pSk1zkffXOhHO5OWyuk27BCUklJ1yybIfT6AgEVQATidOV0ZJij5j7wxyZ5TX6Yt2dwgAe_zIjO8fOmYqOKKAQ8MDdOKjMV4FAJJQ0HXcApt8/s240/29.jpg\" imageanchor=\"1\" style=\"margin-left: 1em; margin-right: 1em;\"><img border=\"0\" data-original-height=\"240\" data-original-width=\"170\" height=\"240\" src=\"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhL4T_APzgnqiANfZ3KNt5uZ2nTNZGkQTTH1F3e4ruENlPJ8ZmVKVn2fSG15XV8zJU83RFtTdldJzQCM6pSk1zkffXOhHO5OWyuk27BCUklJ1yybIfT6AgEVQATidOV0ZJij5j7wxyZ5TX6Yt2dwgAe_zIjO8fOmYqOKKAQ8MDdOKjMV4FAJJQ0HXcApt8/s1600/29.jpg\" width=\"170\" /></a></div><br />image<p></p><p>left align</p><p style=\"text-align: right;\">right align</p><p style=\"text-align: center;\">center text align</p><p></p><ol style=\"text-align: left;\"><li>list</li><li>item 1</li><li>item 2</li><li>item 3</li></ol><p></p><p><br /></p><p></p><blockquote>quote</blockquote><p></p><p><span style=\"font-size: x-small;\">small text</span></p><p>normal text</p><p><span style=\"font-size: medium;\">medium text</span></p><p><span style=\"font-size: large;\">large text</span></p><p><span style=\"font-size: large;\"><br /></span></p><h1 style=\"text-align: left;\">major heding</h1><h2 style=\"text-align: left;\">Heding</h2><h3 style=\"text-align: left;\">sub heding</h3><h4 style=\"text-align: left;\">minor heding</h4><p style=\"text-align: left;\">paragraph&nbsp;</p><div style=\"text-align: left;\">normal</div><p><br /></p>",
+    "author": {
+      "id": "11256775121800959564",
+      "displayName": "Anjali",
+      "url": "https://www.blogger.com/profile/11256775121800959564",
+      "image": {
+        "url": "//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitf6b-rvUVr-3dtqDogf93b_SqvB0YZKLR0d1tt3w6IGv3e6ROtuGIVoaqPBvb17P7ZqsurDnNC23J2kNNqbJf47h0qi401so9ZNKTQG_cdgIMhiAqruwG4pPLWhnuDVk/s45-c/images.jfif"
+      }
+    },
+    "replies": {
+      "totalItems": "0",
+      "selfLink": "https://content-blogger.googleapis.com/v3/blogs/3041366657471632387/posts/7418670130372415079/comments"
+    },
+    "labels": [
+      "tag1",
+      "tag2"
+    ],
+    "etag": "\"dGltZXN0YW1wOiAxNzA4MTExODQzODg0Cm9mZnNldDogLTI4ODAwMDAwCg\""
+  }
