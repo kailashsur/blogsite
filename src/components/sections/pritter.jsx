@@ -1,6 +1,6 @@
 export default function PrittierSection() {
   return (
-    <section className=" mb-32 relative z-10 flex-col gap-2 bg-transparent dark:bg-transparent before:bg-background/10 before:content-[''] before:block before:z-[-1] before:absolute before:inset-0 before:backdrop-blur-md before:backdrop-saturate-200 border-t border-b border-divider px-8 w-screen flex justify-center items-center mt-16 lg:mt-44">
+    <section className=" mb-32 relative z-10 flex-col gap-2 bg-transparent dark:bg-transparent before:bg-background/10 before:content-[''] before:block before:z-[-1] before:absolute before:inset-0 before:backdrop-blur-md before:backdrop-saturate-200 border-t border-b border-divider px-8 flex justify-center items-center mt-16 lg:mt-44">
       <div className=" w-full max-w-7xl py-10 grid grid-cols-12 gap-6 md:gap-0 z-20">
         <div className="flex flex-col gap-2 col-span-12 md:col-span-6">
           <div className="flex flex-col">
@@ -88,7 +88,7 @@ export default function PrittierSection() {
         </div>
       </div>
       <div
-        className="absolute -top-20 lg:top-10 -translate-y-1/2 w-screen h-screen -z-50 opacity-0 data-[mounted=true]:opacity-100 transition-opacity bg-left bg-no-repeat bg-[url('/gradients/looper-pattern.svg')] after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-gradient-to-b after:from-transparent after:to-white/80 dark:after:to-black/20 after:z-[-1]"
+        className="absolute -top-20 lg:top-10 -translate-y-1/2 -z-50 opacity-0 data-[mounted=true]:opacity-100 transition-opacity bg-left bg-no-repeat bg-[url('/gradients/looper-pattern.svg')] after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-gradient-to-b after:from-transparent after:to-white/80 dark:after:to-black/20 after:z-[-1]"
         data-mounted="true"
       ></div>
     </section>

@@ -2,7 +2,7 @@
 import { data } from "../page";
 import PostSection from "@/components/post";
 
-
+export const revalidate = 10;
 
 export default function Blogs() {
 
@@ -39,7 +39,7 @@ export default function Blogs() {
                 </div>
 
 
-                <PostSection posts={data ? data.items : []} />
+                <PostSection posts={data.items ? data.items : []} />
 
 
 

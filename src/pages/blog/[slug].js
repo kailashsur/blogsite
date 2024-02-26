@@ -13,13 +13,13 @@ export async function getStaticPaths() {
     "https://blogger.googleapis.com/v3/blogs/3041366657471632387/posts?orderBy=UPDATED&key=AIzaSyD49CIYDypfLAhBGzkBJ-8yAbn5hPWPzHc"
   );
 
-  const paths = data.items.map((post) => {
+  const paths = data.items ?(data.items.map((post) => {
     let idxSlash = post.url.lastIndexOf("/");
     let htmlIdx = post.url.lastIndexOf(".html");
     let slug = post.url.slice(idxSlash + 1, htmlIdx) + "+" + post.id;
 
     return { params: { slug: slug } };
-  });
+  })) : ""
   return { paths, fallback: "blocking" }; // Set fallback to 'blocking' for on-demand ISR
 }
 
