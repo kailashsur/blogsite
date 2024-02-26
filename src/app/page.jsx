@@ -21,7 +21,7 @@ export default async function App() {
         <PostSection posts={data.items ? data.items : []} />
       }
 
-      <button onClick={() => actions.revalidateMyComponent()}>Revalidate Data</button>
+      
     </div>
   )
 }
