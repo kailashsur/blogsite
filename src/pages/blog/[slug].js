@@ -4,22 +4,30 @@ import formatDate from "@/lib/formatDate";
 import { User } from "@nextui-org/react";
 import Layout from "../Layout";
 import NotFound from "@/components/notfound";
+import Head from "next/head";
 
 import { Breadcrumbs, BreadcrumbItem } from "@nextui-org/react";
 import React from "react";
+
+export const metadata = {
+  title: "Post",
+  description: "Here learn that you think",
+};
 
 export async function getStaticPaths() {
   const { data } = await axios.get(
     "https://blogger.googleapis.com/v3/blogs/3041366657471632387/posts?orderBy=UPDATED&key=AIzaSyD49CIYDypfLAhBGzkBJ-8yAbn5hPWPzHc"
   );
 
-  const paths = data.items ?(data.items.map((post) => {
-    let idxSlash = post.url.lastIndexOf("/");
-    let htmlIdx = post.url.lastIndexOf(".html");
-    let slug = post.url.slice(idxSlash + 1, htmlIdx) + "+" + post.id;
+  const paths = data.items
+    ? data.items.map((post) => {
+        let idxSlash = post.url.lastIndexOf("/");
+        let htmlIdx = post.url.lastIndexOf(".html");
+        let slug = post.url.slice(idxSlash + 1, htmlIdx) + "+" + post.id;
 
-    return { params: { slug: slug } };
-  })) : ""
+        return { params: { slug: slug } };
+      })
+    : "";
   return { paths, fallback: "blocking" }; // Set fallback to 'blocking' for on-demand ISR
 }
 
@@ -54,39 +62,50 @@ export default function PostPage({ post }) {
   return (
     <Layout>
       {!post.error ? (
-        <div className="flex justify-center w-full min-h-screen ">
-          {/* <ContentSection post={post} /> */}
+        <>
+          <Head>
+            <title> {post.title} </title>
+            <meta property="og:title" content={post.title} key="title" />
+          </Head>
 
-          {/* Render post content */}
+          <div className="flex justify-center w-full min-h-screen ">
+            {/* <ContentSection post={post} /> */}
 
-          <div className=" w-full max-w-[680px] ">
-            {/* Title of the content */}
-            <div className=" w-full bg-orange-50 px-4 py-10 mb-10 md:my-10 rounded-md">
-              <Breadcrumbs size="sm" variant="bordered" >
-                <BreadcrumbItem href="/" className=" cursor-pointer" >Home</BreadcrumbItem>
-                <BreadcrumbItem href="/blog" className=" cursor-pointer">Blog</BreadcrumbItem>
-              </Breadcrumbs>
+            {/* Render post content */}
 
-              <h1>{post.title}</h1>
+            <div className=" w-full max-w-[680px] ">
+              {/* Title of the content */}
+              <div className=" w-full bg-orange-50 px-4 py-10 mb-10 md:my-10 rounded-md">
+                <Breadcrumbs size="sm" variant="bordered">
+                  <BreadcrumbItem href="/" className=" cursor-pointer">
+                    Home
+                  </BreadcrumbItem>
+                  <BreadcrumbItem href="/blog" className=" cursor-pointer">
+                    Blog
+                  </BreadcrumbItem>
+                </Breadcrumbs>
 
-              <div className=" flex gap-4 items-center ">
-                <User
-                  name={post.displayName}
-                  avatarProps={{
-                    src: "/profile.gif",
-                  }}
-                />
+                <h1>{post.title}</h1>
 
-                <div className=" text-sm text-gray-800">{date}</div>
+                <div className=" flex gap-4 items-center ">
+                  <User
+                    name={post.displayName}
+                    avatarProps={{
+                      src: "/profile.gif",
+                    }}
+                  />
+
+                  <div className=" text-sm text-gray-800">{date}</div>
+                </div>
+              </div>
+
+              {/* Body of the content */}
+              <div className=" w-full px-4">
+                <div className="w-full">{parse(post.content)}</div>
               </div>
             </div>
-
-            {/* Body of the content */}
-            <div className=" w-full px-4">
-              <div className="w-full">{parse(post.content)}</div>
-            </div>
           </div>
-        </div>
+        </>
       ) : (
         <NotFound />
       )}

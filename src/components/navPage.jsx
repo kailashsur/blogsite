@@ -3,22 +3,31 @@
 import React from "react";
 import {
   PaperAirplaneIcon,
+  MagnifyingGlassIcon
 } from "@heroicons/react/24/outline";
 
-import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, NavbarContent, NavbarItem, Link } from "@nextui-org/react";
+import SearchBox from "./searchBox";
 
 
 export default function NavPage() {
-  const menuItems = [
+
+  const [isOpen, setIsOpen] = React.useState(false)
+
+  const menuItemsMobile = [
     "blog",
     "Dashboard",
     "My Settings",
   ];
+  const menuItemsDesktop = [
+    "blog",
+    
+  ];
 
   return (
-    
 
-    <Navbar  isBordered>
+
+    <Navbar isBordered>
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle />
       </NavbarContent>
@@ -30,7 +39,7 @@ export default function NavPage() {
             className="flex gap-1 font-bold text-gray-700 items-center "
           >
             <PaperAirplaneIcon className="h-6 w-6 text-primary" />
-            <span>Paper.io</span>
+            <span>Kailashsur.in</span>
           </Link>
         </NavbarBrand>
       </NavbarContent>
@@ -44,14 +53,14 @@ export default function NavPage() {
             className="flex gap-1 font-bold text-gray-700 items-center "
           >
             <PaperAirplaneIcon className="h-6 w-6 text-primary" />
-            <span>Paper.io</span>
+            <span>Kailashsur.in</span>
           </Link>
         </NavbarBrand>
         {/* Logo Section End */}
 
 
         {
-          menuItems.map((item, index) => (
+          menuItemsDesktop.map((item, index) => (
             <NavbarItem key={index}>
               <Link color="foreground" href={`/${item}`} className=" capitalize">
                 {item}
@@ -59,27 +68,34 @@ export default function NavPage() {
             </NavbarItem>
           ))
         }
-       
+
       </NavbarContent>
 
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
+
+        {/* Search Item */}
         <NavbarItem>
-          <Button as={Link} color="warning" href="#" variant="flat">
-            Sign Up
-          </Button>
+          <MagnifyingGlassIcon className="h-6 w-6 text-black cursor-pointer " 
+          onClick={()=>setIsOpen(!isOpen)}
+          />
+
+          {
+            isOpen ?
+            <SearchBox isOpen={isOpen} setIsOpen={setIsOpen} />
+            : ""
+          }
+
         </NavbarItem>
+
       </NavbarContent>
 
       <NavbarMenu>
-        {menuItems.map((item, index) => (
+        {menuItemsMobile.map((item, index) => (
           <NavbarMenuItem key={index} className="list-none">
             <Link
               className="w-full capitalize"
               color={
-                index === 2 ? "warning" : index === menuItems.length - 1 ? "danger" : "foreground"
+                index === 2 ? "warning" : index === menuItemsMobile.length - 1 ? "danger" : "foreground"
               }
               href={`/${item}`}
               size="lg"
@@ -90,7 +106,7 @@ export default function NavPage() {
         ))}
       </NavbarMenu>
     </Navbar>
-  
-    
+
+
   );
 }

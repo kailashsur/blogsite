@@ -2,13 +2,13 @@ import PostSection from "@/components/post";
 import Hero from "@/components/sections/hero";
 import PrittierSection from "@/components/sections/pritter";
 import getAllPosts from "@/lib/getAllPosts";
-import { actions } from 'next/navigation';
 
-export const revalidate = 10;
-export const data = await getAllPosts();
+// export const revalidate = 10;
+
 
 
 export default async function App() {
+  const data = await getAllPosts();
 
 
 
@@ -18,7 +18,9 @@ export default async function App() {
       <Hero />
 
       {
+        data ?
         <PostSection posts={data.items ? data.items : []} />
+        : <div> No post found </div>
       }
 
       

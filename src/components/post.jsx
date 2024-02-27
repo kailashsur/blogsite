@@ -1,11 +1,8 @@
-"use client"
+'use client'
 import React from "react";
 import PostCard from "./postCard";
-import Link from 'next/link';
-import { ChevronRightIcon } from "@heroicons/react/24/outline"
 
-
-export default function PostSection({ posts }) {
+export default function PostSection({ posts = [] }) { // Setting default value for posts
 
   // Number of posts to display per page
   const postsPerPage = 6;
@@ -16,9 +13,7 @@ export default function PostSection({ posts }) {
   // Calculate the index range of posts to display based on the current page
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = posts.length > 0 ? posts.slice(indexOfFirstPost, indexOfLastPost) : null;
-
-
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost); // No need for null check here
 
   // Function to handle page change
   // Logic to handle pagination
@@ -37,9 +32,7 @@ export default function PostSection({ posts }) {
 
         <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
 
-          {
-            currentPosts !== null ?
-             currentPosts.map((post, i) => {
+          {currentPosts.map((post, i) => {
               let idxSlash = post.url.lastIndexOf("/")
               let htmlIdx = post.url.lastIndexOf(".html");
 
@@ -47,20 +40,9 @@ export default function PostSection({ posts }) {
 
               return (<PostCard post={post} slug={slug} key={i} />)
             })
-           
-            : (<div className=" text-center"> Post Not Found </div>)
           }
 
-          {/* <!-- More posts... --> */}
-
-          {/* Pagination start */}
-
-
-          {/* Pagination End */}
-
-
         </div>
-
 
       </div>
       <div className=" flex items-center justify-center gap-10 mt-12 font-semibold ">
@@ -74,23 +56,15 @@ export default function PostSection({ posts }) {
             }
           </span>
         }
-{/* 
-        <span className=" text-center pointer-events-none"> {currentPage} </span> */}
 
         {
-          currentPosts ?
           currentPosts.length < 6 ?
             ""
             : <span className={`cursor-pointer ${indexOfLastPost >= posts.length && 'pointer-events-none'}`} onClick={nextPage}>
               Next
             </span>
-          : ""
         }
       </div>
     </div>
   );
 }
-
-PostSection.defaultProps = {
-  revalidate: 60,
-};

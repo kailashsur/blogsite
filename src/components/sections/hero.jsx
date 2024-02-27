@@ -16,7 +16,7 @@ export default function Hero() {
           Send us your article{" "}
           <a
             className="relative inline-flex items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 underline hover:opacity-80 active:opacity-disabled transition-opacity underline-offset-4 text-xl text-default-500 font-light [&amp;>svg]:ml-1"
-            tabindex="0"
+            tabIndex="0"
             role="link"
             href="#"
             rel="noopener noreferrer"

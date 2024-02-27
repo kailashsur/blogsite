@@ -7,14 +7,14 @@ import extractWordsFromParagraphs from "@/lib/extractWordHtml";
 
 
 
-export default function PostCard({ post, slug }) {
+export default function PostCard({ post, slug, css="" }) {
 
   let { id, published, updated, title, content, labels, author: { displayName, image: { url } } } = post;
   let description = extractWordsFromParagraphs(content).join(' ')
 
 
   return (
-    <Link href={`/blog/${slug}+${id}`} className="flex max-w-xl flex-col items-start justify-between" >
+    <Link href={`/blog/${slug}+${id}`} className={"flex max-w-xl flex-col items-start justify-between "+` ${css}`} >
       <div className="flex items-center gap-x-4 text-xs">
         <div className="text-gray-500">
           {formatDate(updated)}
