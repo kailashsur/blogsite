@@ -50,5 +50,3 @@ export default async function ContentSection({ post }) {
     </div>
   );
 }
-
-// 'https://blogger.googleapis.com/v3/blogs/3041366657471632387/posts/7418670130372415079?fetchBody=true&fetchImages=true&maxComments=5&key=[YOUR_API_KEY]'

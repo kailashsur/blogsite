@@ -12,12 +12,12 @@ const Layout = ({ children }) => {
   return (
     <>
     <Providers>
+        <NavPage /> 
       <header>
-        <NavPage/> 
         {/* fix the no scrool blocked by the NavPage */}
       </header>
       {/* Render the page content */}
-      <main className=" h-full">
+      <main className=" h-full max-w-[680px]  mx-auto">
         {children}
       </main>
 

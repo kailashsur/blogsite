@@ -14,8 +14,8 @@ export default function PostCard({ post, slug, css="" }) {
 
 
   return (
-    <Link href={`/blog/${slug}+${id}`} className={"flex max-w-xl flex-col items-start justify-between "+` ${css}`} >
-      <div className="flex items-center gap-x-4 text-xs">
+    <Link href={`/blog/${slug}+${id}`} className={"flex max-w-xl flex-col items-start "+` ${css}`} >
+      <div className="flex h-10 items-center gap-x-4 text-xs">
         <div className="text-gray-500">
           {formatDate(updated)}
         </div>

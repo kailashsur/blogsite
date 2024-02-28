@@ -33,12 +33,12 @@ export default function SearchBox({isOpen, setIsOpen}) {
                     value={inputValue}
                     onChange={(e)=>setInputValue(e.target.value)}
                     onBlur={handleBlur}
-                    className="border focus:border focus:outline-none rounded-lg px-4 py-2 bg-white/50 shadow-lg" />
+                    className="border focus:border focus:outline-none rounded-lg px-4 py-2 bg-white/50 " />
 
                     <button
                     onClick={handelSearch}
                     >
-                            <MagnifyingGlassIcon className="h-9 w-9 cursor-pointer shadow-lg p-2 rounded-full " />
+                            <MagnifyingGlassIcon className="h-9 w-9 cursor-pointer shadow-sm hover:shadow-md transition-all ease-linear p-2 rounded-full " />
                     </button>
                 </form>
         </div>

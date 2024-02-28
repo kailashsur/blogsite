@@ -21,13 +21,13 @@ export default function NavPage() {
   ];
   const menuItemsDesktop = [
     "blog",
-    
+
   ];
 
   return (
 
 
-    <Navbar isBordered>
+    <Navbar isBordered >
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle />
       </NavbarContent>
@@ -44,7 +44,7 @@ export default function NavPage() {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+      <NavbarContent className="hidden sm:flex gap-12" justify="center">
 
         {/* Logo Section Start */}
         <NavbarBrand>
@@ -57,7 +57,6 @@ export default function NavPage() {
           </Link>
         </NavbarBrand>
         {/* Logo Section End */}
-
 
         {
           menuItemsDesktop.map((item, index) => (
@@ -73,16 +72,18 @@ export default function NavPage() {
 
       <NavbarContent justify="end">
 
+     
+
         {/* Search Item */}
         <NavbarItem>
-          <MagnifyingGlassIcon className="h-6 w-6 text-black cursor-pointer " 
-          onClick={()=>setIsOpen(!isOpen)}
+          <MagnifyingGlassIcon className="h-6 w-6 text-black cursor-pointer "
+            onClick={() => setIsOpen(!isOpen)}
           />
 
           {
             isOpen ?
-            <SearchBox isOpen={isOpen} setIsOpen={setIsOpen} />
-            : ""
+              <SearchBox isOpen={isOpen} setIsOpen={setIsOpen} />
+              : ""
           }
 
         </NavbarItem>

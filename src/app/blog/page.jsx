@@ -16,7 +16,6 @@ async function getPosts() {
 export default async function Blogs() {
 
     let data = await getPosts();
-    // console.log("all Post is ", data);
 
 
     return (
