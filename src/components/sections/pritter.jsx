@@ -1,19 +1,19 @@
 export default function PrittierSection() {
   return (
-    <section className=" mb-32 relative z-10 flex-col gap-2 bg-transparent dark:bg-transparent before:bg-background/10 before:content-[''] before:block before:z-[-1] before:absolute before:inset-0 before:backdrop-blur-md before:backdrop-saturate-200 border-t border-b border-divider px-8 flex justify-center items-center mt-16 lg:mt-44">
+    <section className=" mb-32 relative z-10 flex-col gap-2 bg-transparent dark:bg-transparent before:bg-background/10 before:content-[''] before:block before:z-[-1] before:absolute before:inset-0 before:backdrop-blur-md before:backdrop-saturate-200 border-b border-divider px-8 flex justify-center items-center mt-16 lg:mt-44">
       <div className=" w-full max-w-7xl py-10 grid grid-cols-12 gap-6 md:gap-0 z-20">
         <div className="flex flex-col gap-2 col-span-12 md:col-span-6">
           <div className="flex flex-col">
-            <h1 className="tracking-tight font-semibold text-[2.5rem] lg:text-5xl inline">
+            <div className="tracking-tight font-semibold text-[2.5rem] lg:text-5xl inline">
               Let's make the
-            </h1>
+            </div>
             <div>
-              <h1 className="tracking-tight inline font-semibold text-[2.5rem] lg:text-5xl">
+              <div className="tracking-tight inline font-semibold text-[2.5rem] lg:text-5xl">
                 Web&nbsp;
-              </h1>
-              <h1 className="tracking-tight font-semibold from-[#FF1CF7] to-[#b249f8] text-[2.5rem] lg:text-5xl bg-clip-text text-transparent bg-gradient-to-b inline">
+              </div>
+              <div className="tracking-tight font-semibold from-[#FF1CF7] to-[#b249f8] text-[2.5rem] lg:text-5xl bg-clip-text text-transparent bg-gradient-to-b inline">
                 Prettier
-              </h1>
+              </div>
             </div>
           </div>
           <p className="w-full my-2 font-normal text-default-500 block max-w-full md:w-full text-base lg:text-lg">

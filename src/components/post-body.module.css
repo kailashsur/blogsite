@@ -10,7 +10,7 @@
   }
 
   .content img{
-    @apply rounded-md  mx-auto w-full sm:w-fit;
+    @apply rounded-md  mx-auto w-full sm:w-fit pointer-events-none ;
   }
   
   .content a {

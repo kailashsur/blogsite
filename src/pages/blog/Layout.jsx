@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
       </header>
       {/* Render the page content */}
 
-      <main className=" px-4 h-full max-w-7xl flex flex-col items-center mx-auto">
+      <main className="h-full max-w-7xl flex flex-col items-center mx-auto">
         {children}
       </main>
 

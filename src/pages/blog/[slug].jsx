@@ -5,32 +5,34 @@ import Image from "next/image"
 
 import formatDate from "@/lib/formatDate";
 import { User } from "@nextui-org/react";
-import Layout from "../Layout";
+import Layout from "./Layout";
 import NotFound from "@/components/notfound";
 import Head from "next/head";
 
 import { Breadcrumbs, BreadcrumbItem } from "@nextui-org/react";
 import React from "react";
 import PostBody from "@/components/post-body";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
+import SocialShare from "@/components/socialShare";
 
 
 
 
-export default function PostPage({ post, similarPosts }) {
+export default function PostPage({ post, similarPosts,slug }) {
+
   const date = formatDate(post.updated);
   // console.log("Post is ", post);
-  const router = useRouter();
+  // const router = useRouter();
+  const path = `${process.env.SERVER_DOMAIN}/blog/${slug}`;
 
-  // console.log("Title of post is ", post.title);
-
-
-  if (router.isFallback) {
-    return <NotFound />;
-  }
+  // if (router.isFallback) {
+  //   return <NotFound />;
+  // }
 
   return (
     <Layout>
+
+      {/* Body Content Statr */}
       {!post.error ? (
         <article>
           <Head>
@@ -50,8 +52,10 @@ export default function PostPage({ post, similarPosts }) {
             />
           </Head>
 
+
+
+{/* content section start */}
           <div className={` flex justify-center w-full min-h-screen `}>
-            {/* <ContentSection post={post} /> */}
 
             {/* Render post content */}
 
@@ -89,84 +93,97 @@ export default function PostPage({ post, similarPosts }) {
                   </div>
                 </div>
               </div>
+              {/* End of head and title */}
+
+              <SocialShare slug={slug} title={post.title}/>
+              
 
               {/* Body of the content */}
               <div className=" w-full px-4">
                 {/* <div className="w-full">{parse(post.content)}</div> */}
                 <PostBody content={post.content} />
               </div>
+              <SocialShare slug={slug} title={post.title}/>
+
             </div>
           </div>
+          {/* content section end */}
         </article>
 
       ) : (
         <NotFound />
       )}
-      <div className=" pl-4 pt-6 text-3xl font-semibold "> Similar Stories </div>
+{/* End of body content */}
 
-      {
-        similarPosts.items && !similarPosts.error ? (
-          <section className=" mb-6 px-4 py-6 grid grid-cols-1 md:grid-cols-2 justify-center w-full md:gap-6">
+{/* Similar post start */}
+      <div className=" w-full max-w-[680px]">
+        <div className=" pl-4 pt-6 text-3xl font-semibold "> Similar Stories </div>
 
-            {similarPosts.items.map((post, i) => {
-              let idxSlash = post.url.lastIndexOf("/")
-              let htmlIdx = post.url.lastIndexOf(".html");
+        {
+          similarPosts.items && !similarPosts.error ? (
+            <div className=" mb-6 px-4 py-6 grid grid-cols-1 md:grid-cols-2 justify-center w-full md:gap-6">
 
-              let slug = post.url.slice(idxSlash + 1, htmlIdx);
+              {similarPosts.items.map((post, i) => {
+                let idxSlash = post.url.lastIndexOf("/")
+                let htmlIdx = post.url.lastIndexOf(".html");
 
-              // console.log("images is ", post.images);
+                let slug = post.url.slice(idxSlash + 1, htmlIdx);
 
-              return (
-                <Link key={i} href={`/blog/${slug}+${post.id}`} className={"flex max-w-xl flex-col items-start border-t py-14 "} >
+                // console.log("images is ", post.images);
 
-                  {
-                    post.images ? (
-                      <div className="overflow-hidden w-full h-52 mb-4 rounded-md ">
-                        <img
-                          src={post.images[0].url}
-                          alt=""
-                          className="mx-auto h-full w-full object-cover"
-                        />
+                return (
+                  <Link key={i} href={`/blog/${slug}+${post.id}`} className={"flex max-w-xl flex-col items-start border-t py-14 "} >
+
+                    {
+                      post.images ? (
+                        <div className="overflow-hidden w-full h-52 mb-4 rounded-md ">
+                          <img
+                            src={post.images[0].url}
+                            alt=""
+                            className="mx-auto h-full w-full object-cover"
+                          />
+                        </div>
+
+                        // <Image
+                        // width={}
+                        // height={}
+                        // src={}
+                        // alt=""
+                        // />
+                      ) : ""
+                    }
+
+                    <div>
+                      <div className="flex h-10 items-center  gap-x-4 text-xs">
+                        <div className="text-gray-500">
+                          {formatDate(post.updated)}
+                        </div>
+                        {
+                          post.labels ?
+                            <div className="relative z-10 border rounded-full px-3 py-1.5 font-medium text-black hover:bg-gray-100 tracking-tight from-[#defbff] to-[#ffdfd2] bg-gradient-to-tl ">
+                              {post.labels[0]}
+                            </div>
+                            : ""
+                        }
                       </div>
+                      <div className="group relative">
+                        <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                          <span className="absolute inset-0"></span>
+                          {post.title}
+                        </h3>
 
-                      // <Image
-                      // width={}
-                      // height={}
-                      // src={}
-                      // alt=""
-                      // />
-                    ) : ""
-                  }
-
-                  <div>
-                    <div className="flex h-10 items-center  gap-x-4 text-xs">
-                      <div className="text-gray-500">
-                        {formatDate(post.updated)}
                       </div>
-                      {
-                        post.labels ?
-                          <div className="relative z-10 border rounded-full px-3 py-1.5 font-medium text-black hover:bg-gray-100 tracking-tight from-[#defbff] to-[#ffdfd2] bg-gradient-to-tl ">
-                            {post.labels[0]}
-                          </div>
-                          : ""
-                      }
                     </div>
-                    <div className="group relative">
-                      <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                        <span className="absolute inset-0"></span>
-                        {post.title}
-                      </h3>
 
-                    </div>
-                  </div>
-
-                </Link>
-              )
-            })
-            }
-          </section>
-        ) : ""
-      }
+                  </Link>
+                )
+              })
+              }
+            </div>
+          ) : ""
+        }
+      </div>
+{/* Similar post end */}
     </Layout>
   );
 }
@@ -201,7 +218,7 @@ export async function getStaticProps({ params }) {
   );
 
   return {
-    props: { post: await post.json(), similarPosts: await similarPosts.json() },
+    props: { post: await post.json(), similarPosts: await similarPosts.json(), slug },
     revalidate: 10,
   };
 }

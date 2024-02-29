@@ -1,36 +1,34 @@
 
 import PostSection from "@/components/post";
-import getAllPosts from "@/lib/getAllPosts";
+import Layout from "../Layout";
+import React from "react";
 
 export const metadata = {
     title: "Blog",
     description: "Here learn that you think",
   };
 
-async function getPosts() {
-    const res = await fetch(`https://blogger.googleapis.com/v3/blogs/${process.env.BLOG_ID}/posts?fetchBodies=true&orderBy=UPDATED&key=${process.env.YOUR_API_KEY}`, { next: { revalidate: 10 } })
-    
-    return res.json();
-}
 
-export default async function Blogs() {
 
-    let data = await getPosts();
+export default function Blogs({data}) {
 
+    // console.log("Data is ", data);
 
     return (
-        <>
+      
+        <Layout>
+
             <section className=" pt-10">
 
                 <div>
                     <div className="flex-col gap-2 items-start justify-center w-full inline md:block">
-                        <h1 className="tracking-tight inline font-semibold text-4xl lg:text-6xl">
+                        <div className="tracking-tight inline font-semibold text-4xl lg:text-6xl">
                             All Blogs
-                        </h1>
+                        </div>
                         <div>
-                            <h1 className="tracking-tight inline font-semibold from-[#FF72E1] to-[#F54C7A] text-4xl lg:text-6xl bg-clip-text text-transparent bg-gradient-to-b">
+                            <div className="tracking-tight inline font-semibold from-[#FF72E1] to-[#F54C7A] text-4xl lg:text-6xl bg-clip-text text-transparent bg-gradient-to-b">
                                 Here.
-                            </h1>
+                            </div>
                         </div>
                     </div>
                     <p className="w-full md:w-1/2 my-2 text-lg lg:text-xl font-normal text-default-500 block max-w-full">
@@ -56,6 +54,18 @@ export default async function Blogs() {
 
 
             </section>
-        </>
+        </Layout>
+
     )
+}
+
+
+export async function getStaticProps(){
+    const data = await fetch(`https://blogger.googleapis.com/v3/blogs/${process.env.BLOG_ID}/posts?fetchBodies=true&orderBy=UPDATED&key=${process.env.YOUR_API_KEY}`);
+
+
+    return {
+        props: { data: await data.json()},
+        revalidate: 10,
+      };
 }

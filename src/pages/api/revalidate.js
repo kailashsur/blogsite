@@ -1,6 +1,6 @@
 // https://<your-site.com>/api/revalidate?secret=<token>
 
-import { revalidate } from "@/app/page"
+
 
 // http://localhost:3000/api/revalidate?path=/blog&secret=c72bb1a1083914e8c1a8602a72196815a33bec7291fee11a30c112598a76f8e7
 

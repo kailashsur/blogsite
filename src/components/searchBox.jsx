@@ -26,7 +26,7 @@ export default function SearchBox({isOpen, setIsOpen}) {
 
     return (
         <div className="absolute top-8 right-0 z-50 ">
-            <form action="" class="p-10 flex items-center gap-2">
+            <form action="" className="p-10 flex items-center gap-2">
                 <input 
                     ref={inputRef}
                     type="text" 
