@@ -10,7 +10,7 @@ function extractWordsFromParagraphs(htmlContent) {
             const text = match.replace(/<[^>]*>/g, '');
             const wordsInParagraph = text.split(/\s+/);
             // Filter out empty strings and add to words array
-            words.push(...wordsInParagraph.filter(word => word !== ''));
+            words.push(...wordsInParagraph.filter(word => word !== ' '));
         });
     }
 

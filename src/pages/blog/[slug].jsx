@@ -5,52 +5,46 @@ import Image from "next/image"
 
 import formatDate from "@/lib/formatDate";
 import { User } from "@nextui-org/react";
-import Layout from "./Layout";
+import Layout from "./BlogLayout";
 import NotFound from "@/components/notfound";
-import Head from "next/head";
 
 import { Breadcrumbs, BreadcrumbItem } from "@nextui-org/react";
 import React from "react";
 import PostBody from "@/components/post-body";
 // import { useRouter } from "next/router";
 import SocialShare from "@/components/socialShare";
-
+import extractWordsFromParagraphs from "@/lib/extractWordHtml";
+import { useRouter } from "next/router";
 
 
 
 export default function PostPage({ post, similarPosts,slug }) {
+
+  const router = useRouter();
+ 
+  // Get the full domain name
+  const fullDomain = typeof window !== 'undefined' ? window.location.href : 'https://yourdomain.com';
 
   const date = formatDate(post.updated);
   // console.log("Post is ", post);
   // const router = useRouter();
   const path = `${process.env.SERVER_DOMAIN}/blog/${slug}`;
 
+  const title = !post.error ? post.title : ""
+  const description = !post.error ? (extractWordsFromParagraphs(post.content)) : ""
+  const featureImage = !post.error ? post.images[0].url : ""
   // if (router.isFallback) {
   //   return <NotFound />;
   // }
 
   return (
-    <Layout>
+    <Layout title={title} description={description} featureImage={featureImage} pathUrl={fullDomain} >
 
       {/* Body Content Statr */}
       {!post.error ? (
+
         <article>
-          <Head>
-            <title>
-              {post.title
-                ? `${post.title} | Kailashsur`
-                : "Post | Kailashsur"}
-            </title>
-            <meta
-              property="og:title"
-              content={post.title || "Post Title"}
-              key="title"
-            />
-            <meta
-              property="og:image"
-              content={post.images.url ? post.images.url : ""}
-            />
-          </Head>
+         
 
 
 
@@ -222,3 +216,5 @@ export async function getStaticProps({ params }) {
     revalidate: 10,
   };
 }
+
+

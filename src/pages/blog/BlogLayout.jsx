@@ -1,27 +1,30 @@
+
 import Footer from "@/components/footer";
 import NavPage from "@/components/navPage";
 import Providers from "@/pages/providers";
-import { admin, description, domain, keywords, title } from "@/utils/metadata";
 import React from "react";
-import Logo from "@/../public/logo.png";
 import { NextSeo } from "next-seo";
+import { admin, keywords} from "@/utils/metadata";
+
+
 
 /**
  * This layout component should be wraped on every new route of inside of the pages router
  */
-const Layout = ({ children }) => {
+const Layout = ({ children, title, description, featureImage, pathUrl } ) => {
+
   return (
     <>
       <Providers>
-        <header>
+      <header>
           <NextSeo
             title={`${title}`}
             description={`${description}`}
             openGraph={{
               title: `${title}`,
               description: `${description}`,
-              images: [{ url: "/logo.png" }], // Replace with actual image URL
-              url: `${domain}`, // Replace with actual domain
+              images: [{ url: `${featureImage}` }], // Replace with actual image URL
+              url: `${pathUrl}`, // Replace with actual domain
             }}
             additionalMetaTags={[
               {
@@ -35,10 +38,10 @@ const Layout = ({ children }) => {
             ]}
           />
         </header>
-        <NavPage />
-        {/* Render the page content */}
 
-        <main className=" px-4 h-full max-w-7xl flex flex-col items-center mx-auto">
+        <NavPage />
+
+        <main className=" h-full max-w-7xl flex flex-col items-center mx-auto">
           {children}
         </main>
 
@@ -50,3 +53,4 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
+

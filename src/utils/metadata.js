@@ -1,6 +1,6 @@
 
 const metadata = {
-    domain : `${process.env.SERVER_DOMAIN}`,
+    domain : `https://www.kailashsur.in`,
     title : "Kailashsur",
     description : "Empowering individuals to share their unique stories",
     keywords : "blogging, share, ",
