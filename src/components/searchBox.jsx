@@ -26,14 +26,16 @@ export default function SearchBox({isOpen, setIsOpen}) {
 
     return (
         <div className="absolute top-8 right-0 z-50 ">
-            <form action="" className="p-10 flex items-center gap-2">
+            <form action="" className="p-10 flex items-center gap-2 ">
+      
                 <input 
                     ref={inputRef}
                     type="text" 
                     value={inputValue}
                     onChange={(e)=>setInputValue(e.target.value)}
                     onBlur={handleBlur}
-                    className="border focus:border focus:outline-none rounded-lg px-4 py-2 bg-white/50 " />
+                    className="border focus:border focus:outline-none rounded-lg px-4 py-2 bg-white/90 " />
+
 
                     <button
                     onClick={handelSearch}

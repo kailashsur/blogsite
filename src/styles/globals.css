@@ -1,45 +1,10 @@
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
-/* 
-    img{
-        @apply rounded-md shadow-md ;
-    }
 
-    h1{
-        @apply my-6 tracking-tight font-semibold from-[#FF705B] to-[#FFB457] text-4xl  bg-clip-text text-transparent bg-gradient-to-b;
-    }
-    h2{
-        @apply my-6 tracking-tight font-semibold from-[#FF705B] to-[#FFB457] text-3xl bg-clip-text text-transparent bg-gradient-to-b;
-    }
-    h3{
-        @apply mt-6 mb-4 tracking-tight font-semibold from-[#7949ff] to-[#d3acfd] text-2xl bg-clip-text text-transparent bg-gradient-to-b;
-    }
-
-
-    blockquote{
-        @apply border-l-5 border-purple-600 py-4 pl-6 bg-purple-100;
-    }
-
-    ol{
-        @apply border-l-5 border-pink-500 py-4 pr-4 pl-12 bg-pink-100 list-decimal;
-    }
-    
-    /* body ul{
-        @apply border-l-5 border-pink-500 py-4 pl-12 bg-pink-100 list-decimal ;
-    } */
-   
-    /* p{
-        @apply text-lg;
-    } */
-
-     
-    /* body a{
-        @apply relative inline-flex items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 underline hover:opacity-80 active:opacity-disabled transition-opacity underline-offset-4 text-xl text-default-500 font-light;
-    } */
-
-       
     
 }

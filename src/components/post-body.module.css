@@ -1,3 +1,4 @@
+
 .content {
     @apply text-lg leading-relaxed;
   }
@@ -10,11 +11,11 @@
   }
 
   .content img{
-    @apply rounded-md  mx-auto w-full sm:w-fit pointer-events-none ;
+    @apply rounded-md  mx-auto w-full sm:w-full pointer-events-none cursor-none ;
   }
   
   .content a {
-    @apply underline;
+    @apply text-[#ff5718] underline;
   }
   
   .content ul,
@@ -41,15 +42,15 @@
 
 
   .content h2 {
-    @apply  mt-12 mb-4 leading-snug tracking-tight font-semibold text-3xl inline;
+    @apply  mt-12 mb-4 leading-snug tracking-tight text-3xl text-[#621709] font-noto_serif_display ;
   }
   
   .content h3 {
-    @apply text-2xl mt-8 mb-4 leading-snug;
+    @apply text-2xl mt-8 mb-4 leading-snug font-noto_serif_display;
   }
   
   .content h4 {
-    @apply text-xl mt-6 mb-4 leading-snug;
+    @apply text-xl mt-6 mb-4 leading-snug font-noto_serif_display;
   }
   
   .content pre {

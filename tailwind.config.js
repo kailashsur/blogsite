@@ -1,4 +1,4 @@
-import { nextui } from "@nextui-org/react"
+import { nextui } from "@nextui-org/react";
 
 /** @type {import('tailwindcss').Config} */
 
@@ -16,8 +16,9 @@ const config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-      
-
+      fontFamily: {
+        noto_serif_display : [ 'var(--noto-serif-display)' ]
+       }
 
     },
   },

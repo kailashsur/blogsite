@@ -25,24 +25,24 @@ export default function SocialShare({ slug, title }) {
             <WhatsappShareButton
 
                 url={cURL} title={title} >
-                <WhatsappIcon size={20} round />
+                <WhatsappIcon size={48} round />
             </WhatsappShareButton>
             <LinkedinShareButton
 
                 url={cURL} title={title} >
-                <LinkedinIcon size={20} round />
+                <LinkedinIcon size={48} round />
             </LinkedinShareButton>
 
             <FacebookShareButton
 
                 url={cURL} title={title} >
-                <FacebookIcon size={20} round />
+                <FacebookIcon size={48} round />
             </FacebookShareButton>
 
             <RedditShareButton
 
                 url={cURL} title={title} >
-                <RedditIcon size={20} round />
+                <RedditIcon size={48} round />
             </RedditShareButton>
 
 
