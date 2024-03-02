@@ -23,7 +23,6 @@ export default function SocialShare({ slug, title }) {
     return (
         <div className=' px-6 w-full flex justify-end items-center gap-2 py-4'>
             <WhatsappShareButton
-
                 url={cURL} title={title} >
                 <WhatsappIcon size={48} round />
             </WhatsappShareButton>

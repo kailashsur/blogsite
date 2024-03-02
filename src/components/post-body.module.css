@@ -42,15 +42,15 @@
 
 
   .content h2 {
-    @apply  mt-12 mb-4 leading-snug tracking-tight text-3xl text-[#621709] font-noto_serif_display ;
+    @apply  mt-12 mb-4 leading-snug tracking-tight text-3xl text-[#335133] font-semibold font-nanum_myeongjo ;
   }
   
   .content h3 {
-    @apply text-2xl mt-8 mb-4 leading-snug font-noto_serif_display;
+    @apply text-2xl mt-8 mb-4 leading-snug font-nanum_myeongjo;
   }
   
   .content h4 {
-    @apply text-xl mt-6 mb-4 leading-snug font-noto_serif_display;
+    @apply text-xl mt-6 mb-4 leading-snug font-nanum_myeongjo;
   }
   
   .content pre {

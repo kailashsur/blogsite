@@ -17,7 +17,7 @@ const config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        noto_serif_display : [ 'var(--noto-serif-display)' ]
+        nanum_myeongjo : [ 'var(--nanum_myeongjo)' ]
        }
 
     },

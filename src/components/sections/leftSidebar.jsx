@@ -1,8 +1,11 @@
-export default function (){
-    return (
-        <div className="bg-red-300 hidden sm:block absolute ">
-    <div className=" fixed top-20 ">Left Side 00 Bar</div>
-</div>
+import TableOfContent from "../tableofcontent";
 
+export default function ({headings}){
+    return (
+       <div>
+
+        <TableOfContent headings={headings} />
+
+       </div>
     )
 }

@@ -17,9 +17,10 @@ import extractWordsFromParagraphs from "@/lib/extractWordHtml";
 import { useRouter } from "next/router";
 // Font section -------------------------------
 import { Pathway_Extreme } from "@next/font/google";
-import { Noto_Serif_Display } from "@next/font/google"
+import { Nanum_Myeongjo } from "@next/font/google"
 import TableOfContent from "@/components/tableofcontent";
 import { parseHeadings } from "@/utils/parseHeadings";
+import { extractHeadingsFromHtml } from "@/utils/setIdToHtml";
 
 
 const pathway_extreme = Pathway_Extreme({
@@ -27,17 +28,15 @@ const pathway_extreme = Pathway_Extreme({
   weight: ['200', '700']
 })
 
-const noto_serif_display = Noto_Serif_Display({
+const nanum_myeongjo = Nanum_Myeongjo({
   subsets: ['latin'],
-  weight: ['300', '400'],
-  variable: '--noto-serif-display'
+  weight: ['400', '700'],
+  variable: '--nanum_myeongjo'
   // width : [ '100' ]
 })
 // -----------font section end ------------------
 
 export default function PostPage({ post, similarPosts, slug }) {
-
-  const router = useRouter();
 
   // Get the full domain name
   const fullDomain = typeof window !== 'undefined' ? window.location.href : 'https://www.kailashsur.in';
@@ -57,28 +56,18 @@ export default function PostPage({ post, similarPosts, slug }) {
 
 
   //----------------------Table of content Start -------------------------
-// React.useEffect(()=>{
 
-//   const headingsArray = parseHeadings(post.content)
-//   console.log("Headings are = ", headingsArray);
 
-//   let h2Tags = typeof document !== 'undefined' ? document.querySelectorAll('h1, h2, h3, h4, h5, h6') : null;
+  const { headings, modifiedHtmlContent } = extractHeadingsFromHtml(post.content)
+  // console.log("Headings crgo : ", headings);
+  // console.log("Modified Html content : ", modifiedHtmlContent);
 
-//   const h2Array = h2Tags !== null ? Array.from(h2Tags) : []
-// console.log( "Tag Array ", h2Array);
-//   if(h2Array.length > 0){
-//     h2Array.forEach((tag, index) => {
-//       console.log("Tag - ", tag);
-//       tag.setAttribute('id', 'idnameofArray' + index);
-//     });
-//   }
+  // -----------------------Tabel of content End ----------------------------
 
-// },[])
 
-  // -----------------------Tabel of content End
 
   return (
-    <Layout title={title} description={description} featureImage={featureImage} pathUrl={fullDomain} >
+    <Layout title={title} description={description} featureImage={featureImage} pathUrl={fullDomain} headings={headings} >
 
       {/* Body Content Statr */}
       {!post.error ? (
@@ -95,7 +84,7 @@ export default function PostPage({ post, similarPosts, slug }) {
 
             <div className=" w-full max-w-[680px] ">
               {/* Title of the content */}
-              <div className={`${noto_serif_display.variable}  w-full bg-orange-50 px-4 py-10 mb-10 md:my-10 rounded-md`}>
+              <div className={`${nanum_myeongjo.variable}  w-full bg-orange-50 px-4 py-10 mb-10 md:my-10 rounded-md`}>
                 <Breadcrumbs size="sm">
                   <BreadcrumbItem href="/" className=" cursor-pointer">
                     Home
@@ -129,20 +118,22 @@ export default function PostPage({ post, similarPosts, slug }) {
               </div>
               {/* End of head and title */}
 
-
+              <SocialShare slug={slug} title={post.title} />
 
               {/* Table of content is started */}
+<div className=" lg:hidden">
+
+              <TableOfContent headings={headings} /> {/* Table of content End */}
+</div>
 
 
 
-
-              <SocialShare slug={slug} title={post.title} />
 
 
               {/* Body of the content */}
-              <div className={`${noto_serif_display.variable} ${pathway_extreme.className} w-full px-4`}>
+              <div className={`${nanum_myeongjo.variable} ${pathway_extreme.className} w-full px-4`}>
                 {/* <div className="w-full">{parse(post.content)}</div> */}
-                <PostBody content={post.content} />
+                <PostBody content={modifiedHtmlContent} />
               </div>
               <SocialShare slug={slug} title={post.title} />
 

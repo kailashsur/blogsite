@@ -9,11 +9,12 @@ import Providers from "@/pages/providers";
 import React from "react";
 import { NextSeo } from "next-seo";
 import { admin, keywords } from "@/utils/metadata";
+import LeftSidebar from "@/components/sections/leftSidebar";
 
 /**
  * This layout component should be wraped on every new route of inside of the pages router
  */
-const Layout = ({ children, title, description, featureImage, pathUrl}) => {
+const Layout = ({ children, title, description, featureImage, pathUrl, headings}) => {
 
   return (
     <>
@@ -44,10 +45,12 @@ const Layout = ({ children, title, description, featureImage, pathUrl}) => {
         {/* <div className=" sticky top-0 ">Body sidebar</div> */}
 
  
-        <main className=" bg-[#f5ede9] flex flex-row justify-center ">
+        <main className=" bg-[#f9f7ef] flex flex-row justify-center ">
 
 {/* This is for Left Side bar */}
-          <div className="sticky top-0 left-0 h-screen  z-30 min-w-fit pt-40 justify-center px-6 hidden md:flex  "></div>
+          <div className="sticky top-0 left-0 h-screen  z-30 min-w-fit pt-40 justify-center px-6 hidden lg:flex  ">
+            <LeftSidebar headings={headings} />
+          </div>
 
 
           <section className="  h-full w-full max-w-3xl flex flex-col items-center ">
@@ -56,7 +59,9 @@ const Layout = ({ children, title, description, featureImage, pathUrl}) => {
           </section>
 
 {/* This is for Right Sidebar */}
-          <div className="sticky top-0 left-0 h-screen z-30 min-w-fit pt-40  justify-center px-6 hidden md:flex  "></div>
+          <div className="sticky top-0 left-0 h-screen z-30 min-w-fit pt-40  justify-center px-6 hidden lg:flex  ">
+            Right Side Bar Ad
+          </div>
 
 
         </main>

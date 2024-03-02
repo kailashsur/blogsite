@@ -5,6 +5,8 @@
 @tailwind utilities;
 
 @layer components {
-
+    h1{
+        @apply font-nanum_myeongjo;
+    }
     
 }

@@ -9,7 +9,7 @@ export default function App({ data }) {
   
     return (
       <Layout>
-        <div>
+        <div className="">
           <PrittierSection />
           <Hero />
           {
