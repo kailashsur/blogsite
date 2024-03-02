@@ -14,41 +14,41 @@ import LeftSidebar from "@/components/sections/leftSidebar";
 /**
  * This layout component should be wraped on every new route of inside of the pages router
  */
-const Layout = ({ children, title, description, featureImage, pathUrl, headings}) => {
+const Layout = ({ children, title, description, featureImage, pathUrl, headings }) => {
 
   return (
     <>
       <Providers>
-      <NextSeo
-            title={`${title}`}
-            description={`${description}`}
-            openGraph={{
-              title: `${title}`,
-              description: `${description}`,
-              images: [{ url: `${featureImage}` }], // Replace with actual image URL
-              url: `${pathUrl}`, // Replace with actual domain
-            }}
-            additionalMetaTags={[
-              {
-                name: "keywords",
-                content: `${keywords}`,
-              },
-              {
-                name: "author",
-                content: `${admin}`,
-              },
-            ]}
-          />
+        <NextSeo
+          title={`${title}`}
+          description={`${description}`}
+          openGraph={{
+            title: `${title}`,
+            description: `${description}`,
+            images: [{ url: `${featureImage}` }], // Replace with actual image URL
+            url: `${pathUrl}`, // Replace with actual domain
+          }}
+          additionalMetaTags={[
+            {
+              name: "keywords",
+              content: `${keywords}`,
+            },
+            {
+              name: "author",
+              content: `${admin}`,
+            },
+          ]}
+        />
 
-          <NavPage />
+        <NavPage />
 
         {/* <div className=" sticky top-0 ">Body sidebar</div> */}
 
- 
+
         <main className=" bg-[#f9f7ef] flex flex-row justify-center ">
 
-{/* This is for Left Side bar */}
-          <div className="sticky top-0 left-0 h-screen  z-30 min-w-fit pt-40 justify-center px-6 hidden lg:flex  ">
+          {/* This is for Left Side bar */}
+          <div className="sticky top-0 left-0 h-screen  z-30 min-w-fit max-w-full pt-40 justify-center px-6 hidden lg:flex  ">
             <LeftSidebar headings={headings} />
           </div>
 
@@ -58,9 +58,9 @@ const Layout = ({ children, title, description, featureImage, pathUrl, headings}
             {children}
           </section>
 
-{/* This is for Right Sidebar */}
-          <div className="sticky top-0 left-0 h-screen z-30 min-w-fit pt-40  justify-center px-6 hidden lg:flex  ">
-            Right Side Bar Ad
+          {/* This is for Right Sidebar */}
+          <div className="sticky top-0 left-0 h-screen z-30 min-w-fit max-w-full pt-40  justify-center px-6 hidden lg:flex  ">
+            
           </div>
 
 

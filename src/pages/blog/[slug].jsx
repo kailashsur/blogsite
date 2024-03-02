@@ -121,10 +121,10 @@ export default function PostPage({ post, similarPosts, slug }) {
               <SocialShare slug={slug} title={post.title} />
 
               {/* Table of content is started */}
-<div className=" lg:hidden">
+              <div className=" lg:hidden">
 
-              <TableOfContent headings={headings} /> {/* Table of content End */}
-</div>
+                <TableOfContent headings={headings} /> {/* Table of content End */}
+              </div>
 
 
 
@@ -149,11 +149,11 @@ export default function PostPage({ post, similarPosts, slug }) {
 
       {/* Similar post start */}
       <div className=" w-full max-w-[680px]">
-        <div className=" pl-4 pt-6 text-3xl font-semibold "> Similar Stories </div>
+        <div className={" pl-4 pt-6 text-3xl font-semibold text-[#335133] " + `${nanum_myeongjo.className}`}> Similar Stories </div>
 
         {
           similarPosts.items && !similarPosts.error ? (
-            <div className=" mb-6 px-4 py-6 grid grid-cols-1 md:grid-cols-2 justify-center w-full md:gap-6">
+            <div className=" mb-6 px-4 py-6 flex flex-col w-full md:gap-6 ">
 
               {similarPosts.items.map((post, i) => {
                 let idxSlash = post.url.lastIndexOf("/")
@@ -164,11 +164,11 @@ export default function PostPage({ post, similarPosts, slug }) {
                 // console.log("images is ", post.images);
 
                 return (
-                  <Link key={i} href={`/blog/${slug}+${post.id}`} className={"flex max-w-xl flex-col items-start border-t py-14 "} >
+                  <Link key={i} href={`/blog/${slug}+${post.id}`} className={"flex max-w-xl items-center border-t py-14 gap-4 "} >
 
                     {
                       post.images ? (
-                        <div className="overflow-hidden w-full h-52 mb-4 rounded-md ">
+                        <div className="overflow-hidden w-32 mb-4 rounded-md ">
                           <img
                             src={post.images[0].url}
                             alt=""
@@ -185,26 +185,21 @@ export default function PostPage({ post, similarPosts, slug }) {
                       ) : ""
                     }
 
-                    <div>
-                      <div className="flex h-10 items-center  gap-x-4 text-xs">
-                        <div className="text-gray-500">
+                    <div className=" flex flex-col justify-center items-start gap-2">
+                        <div className="text-gray-500 text-xs m-0 p-0">
                           {formatDate(post.updated)}
                         </div>
-                        {
+                        {/* {
                           post.labels ?
                             <div className="relative z-10 border rounded-full px-3 py-1.5 font-medium text-black hover:bg-gray-100 tracking-tight from-[#defbff] to-[#ffdfd2] bg-gradient-to-tl ">
                               {post.labels[0]}
                             </div>
                             : ""
-                        }
-                      </div>
-                      <div className="group relative">
-                        <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                          <span className="absolute inset-0"></span>
+                        } */}
+                    
+                        <h3 className={`${nanum_myeongjo.className} text-lg font-semibold text-[#335133] `}>
                           {post.title}
                         </h3>
-
-                      </div>
                     </div>
 
                   </Link>
