@@ -84,7 +84,7 @@ export default function PostPage({ post, similarPosts, slug }) {
 
             <div className=" w-full max-w-[680px] ">
               {/* Title of the content */}
-              <div className={`${nanum_myeongjo.variable}  w-full bg-orange-50 px-4 py-10 mb-10 md:my-10 rounded-md`}>
+              <div className={`${nanum_myeongjo.variable}  w-full px-4 py-10 mb-10 md:my-10 rounded-md`}>
                 <Breadcrumbs size="sm">
                   <BreadcrumbItem href="/" className=" cursor-pointer">
                     Home
