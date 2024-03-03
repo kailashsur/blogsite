@@ -15,7 +15,14 @@
   }
   
   .content a {
-    @apply text-[#ff5718] underline;
+    @apply text-[#ff5718] underline-offset-4 ;
+  }
+  .content a {
+    text-decoration: underline;
+    -webkit-text-decoration-color: rgb(114, 243, 250);
+    text-decoration-color: rgb(114, 250, 248);
+    -webkit-text-decoration-style: wavy;
+    text-decoration-style: wavy;
   }
   
   .content ul,

@@ -6,6 +6,20 @@ import React from "react";
 import Logo from "@/../public/logo.png";
 import { NextSeo } from "next-seo";
 
+import { Pathway_Extreme } from "@next/font/google";
+import { Nanum_Myeongjo } from "@next/font/google"
+
+const pathway_extreme = Pathway_Extreme({
+  subsets: ['latin'],
+  weight: ['200', '700']
+})
+
+const nanum_myeongjo = Nanum_Myeongjo({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--nanum_myeongjo'
+
+})
 /**
  * This layout component should be wraped on every new route of inside of the pages router
  */
@@ -38,7 +52,7 @@ const Layout = ({ children }) => {
         <NavPage />
         {/* Render the page content */}
 
-        <main className=" px-4 h-full max-w-7xl flex flex-col items-center mx-auto">
+        <main className={`px-4 h-full max-w-7xl flex flex-col items-center mx-auto font-nanum_myeongjo ${pathway_extreme.className} ${nanum_myeongjo.variable}`}>
           {children}
         </main>
 

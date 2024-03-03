@@ -1,6 +1,8 @@
+import Link from 'next/link'
+
 export default function PrittierSection() {
   return (
-    <section className=" mb-32 relative z-10 flex-col gap-2 bg-transparent dark:bg-transparent before:bg-background/10 before:content-[''] before:block before:z-[-1] before:absolute before:inset-0 before:backdrop-blur-md before:backdrop-saturate-200 border-b border-divider px-8 flex justify-center items-center mt-16 lg:mt-44">
+    <section className=" mb-32 relative z-10 flex-col gap-2 bg-transparent dark:bg-transparent before:bg-background/10 before:content-[''] before:block before:z-[-1] before:absolute before:inset-0 before:backdrop-blur-md before:backdrop-saturate-200 backdrop-filter backdrop-blur-md px-8 flex justify-center items-center mt-16 lg:mt-44">
       <div className=" w-full max-w-7xl py-10 grid grid-cols-12 gap-6 md:gap-0 z-20">
         <div className="flex flex-col gap-2 col-span-12 md:col-span-6">
           <div className="flex flex-col">
@@ -20,7 +22,7 @@ export default function PrittierSection() {
             Experience it firsthand and show us your creations!
           </p>
           <div className="flex flex-row gap-3 justify-start">
-            <a
+            <Link
               className="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-unit-4 min-w-unit-20 h-unit-10 gap-unit-2 rounded-full [&amp;>svg]:max-w-[theme(spacing.unit-8)] data-[pressed=true]:scale-[0.97] transition-transform-colors-opacity motion-reduce:transition-none bg-secondary text-secondary-foreground data-[hover=true]:opacity-hover text-sm"
               role="button"
               tabIndex="0"
@@ -55,7 +57,7 @@ export default function PrittierSection() {
                   strokeWidth="2"
                 ></path>
               </svg>
-            </a>
+            </Link>
             <a
               className=" no-underline hover:opacity-80 active:opacity-disabled transition-opacity z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-medium px-unit-4 min-w-unit-20 h-unit-10 gap-unit-2 rounded-full [&amp;>svg]:max-w-[theme(spacing.unit-8)] data-[pressed=true]:scale-[0.97] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent border-default text-foreground data-[hover=true]:opacity-hover text-sm"
               tabIndex="0"

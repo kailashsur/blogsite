@@ -8,21 +8,22 @@ import {
 
 import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, NavbarContent, NavbarItem, Link } from "@nextui-org/react";
 import SearchBox from "./searchBox";
+import { menuItemsDesktop, menuItemsMobile } from "@/utils/menu";
 
 
 export default function NavPage() {
 
   const [isOpen, setIsOpen] = React.useState(false)
 
-  const menuItemsMobile = [
-    "blog",
-    "Dashboard",
-    "My Settings",
-  ];
-  const menuItemsDesktop = [
-    "blog",
+  // const menuItemsMobile = [
+  //   "blog",
+  //   "Dashboard",
+  //   "My Settings",
+  // ];
+  // const menuItemsDesktop = [
+  //   "blog",
 
-  ];
+  // ];
 
   return (
 
@@ -59,13 +60,14 @@ export default function NavPage() {
         {/* Logo Section End */}
 
         {
-          menuItemsDesktop.map((item, index) => (
+          menuItemsDesktop !== undefined && menuItemsDesktop.length ? menuItemsDesktop.map((item, index) => (
             <NavbarItem key={index}>
-              <Link color="foreground" href={`/${item}`} className=" capitalize">
-                {item}
+              <Link color="foreground" href={`/${item.menu}`} className=" capitalize">
+                {item.menu}
               </Link>
             </NavbarItem>
           ))
+          : ""
         }
 
       </NavbarContent>
@@ -91,20 +93,21 @@ export default function NavPage() {
       </NavbarContent>
 
       <NavbarMenu>
-        {menuItemsMobile.map((item, index) => (
+        {menuItemsMobile !== undefined && menuItemsMobile.length ? menuItemsMobile.map((item, index) => (
           <NavbarMenuItem key={index} className="list-none">
             <Link
               className="w-full capitalize"
               color={
                 index === 2 ? "warning" : index === menuItemsMobile.length - 1 ? "danger" : "foreground"
               }
-              href={`/${item}`}
+              href={`/${item.menu}`}
               size="lg"
             >
-              {item}
+              {item.menu}
             </Link>
           </NavbarMenuItem>
-        ))}
+        )) 
+      : ""}
       </NavbarMenu>
     </Navbar>
 

@@ -41,7 +41,7 @@ export default function SearchPage() {
         <Layout>
             {
                 query.q ?
-            <div className="w-full grid justify-center gap-10">
+            <div className="w-full grid justify-center gap-10 mt-20">
                 {data !== null ? (
                     data.items && data.items.length > 0 ? (
                         data.items.map((post, i) => {
