@@ -100,10 +100,10 @@ export default function NavPage() {
               color={
                 index === 2 ? "warning" : index === menuItemsMobile.length - 1 ? "danger" : "foreground"
               }
-              href={`/${item.menu}`}
+              href={`/${item}`}
               size="lg"
             >
-              {item.menu}
+              {item}
             </Link>
           </NavbarMenuItem>
         )) 

@@ -241,7 +241,7 @@ export async function getStaticProps({ params }) {
   );
 
   const similarPosts = await fetch(
-    `https://blogger.googleapis.com/v3/blogs/${process.env.BLOG_ID}/posts?fetchImages=true&sortOption=SORT_OPTION_UNSPECIFIED&fetchBodies=false&maxResults=2&orderBy=UPDATED&key=${process.env.YOUR_API_KEY}`
+    `https://blogger.googleapis.com/v3/blogs/${process.env.BLOG_ID}/posts?fetchImages=true&sortOption=SORT_OPTION_UNSPECIFIED&fetchBodies=false&maxResults=2&orderBy=ORDER_BY_UNSPECIFIED&key=${process.env.YOUR_API_KEY}`
   );
 
   return {

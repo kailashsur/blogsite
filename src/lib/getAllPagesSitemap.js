@@ -1,6 +1,3 @@
-import formatDate from "./formatDate";
-
-
 
 export default async function getAllPagesSitemap() {
   const post_urls = await getAllPostUrl();
@@ -30,7 +27,7 @@ async function getAllPostUrl() {
 
     urls.push({
         url : `${process.env.SERVER_DOMAIN}/blog/${slug}+${post.id}`,
-        updated : formatDate(post.updated)
+        updated : post.updated
         });
   });
 
